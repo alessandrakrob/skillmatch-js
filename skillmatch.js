@@ -58,3 +58,17 @@ function calcularCompatibilidade(candidato, vaga) {
 
     return compatibilidade;
 }
+
+// ======================================
+// CLASSIFICAÇÃO DE COMPATIBILIDADE
+// ======================================
+
+if (compatibilidade >= 80) {
+    console.log("Alta compatibilidade");
+} else if (compatibilidade >= 50) {
+    console.log("média compatibilidade");
+} else if (compatibilidade >= 0){
+    console.log("Baixa compatibilidade");
+} else {
+    console.log("Porcentagem inválida");
+}
