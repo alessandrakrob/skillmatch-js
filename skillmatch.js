@@ -1,6 +1,7 @@
 // ======================================
 // OBJETO CANDIDATO
 // ======================================
+
 const candidato = {
     nome:"Alessandra",
     area:"Front-End",
@@ -38,3 +39,22 @@ const vagas = [
         madalidade:"Presencial"
     }
 ];
+
+// ======================================
+// FUNÇÃO DE COMPATIBILIDADE
+// ======================================
+
+function calcularCompatibilidade(candidato, vaga) {
+    let totalRequisitos = vaga.requisitos.length;
+    let requisitosAtendidos = 0;
+    
+    vaga.requisitos.forEach(requisito => {
+        if(candidato.habilidades.includes(requisito)) {
+            requisitosAtendidos++;
+        }
+    });
+    
+    let compatibilidade = (requisitosAtendidos / totalRequisitos) * 100;
+
+    return compatibilidade;
+}
