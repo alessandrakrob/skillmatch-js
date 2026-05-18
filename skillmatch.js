@@ -74,3 +74,19 @@ function classificarCompatibilidade(compatibilidade){
         return "Porcentagem inválida";
     } 
 }
+
+// ======================================
+// LISTAR HABILIDADES FALTANTES
+// ======================================
+
+function habilidadesFaltantes (candidato, vaga){
+    let faltantes = [];
+    
+    vaga.requisitos.forEach(requisito => {
+        if(!candidato.habilidades.includes(requisito)) {
+            faltantes.push(requisito);
+        }
+    });
+
+    return faltantes; 
+}
