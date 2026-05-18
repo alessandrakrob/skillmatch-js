@@ -23,6 +23,7 @@ const vagas = [
     },
     {
         id:2,
+        empresa: "Far Way",
         cargo:"Estágio Front-End",
         requisitos:["JavaScript","HTML","CSS"],
         salario:1500,
@@ -30,6 +31,7 @@ const vagas = [
     },
     {
         id:3,
+        empresa: "Espotifai",
         cargo:"Programador JavaScript Júnior",
         requisitos:["Lógica de Programação","JavaScript","HTML","CSS","GitHub","Kanban", "POO"],
         salario:3000,
