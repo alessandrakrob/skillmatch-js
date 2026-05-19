@@ -1,24 +1,20 @@
-// ======================================
 // OBJETO CANDIDATO
-// ======================================
 
 const candidato = {
     nome:"Alessandra",
     area:"Front-End",
-    habilidades: ["JavaScript","GitHub","HTML","CSS","Kanban"],
+    habilidades: ["JavaScript","GitHub","HTML","CSS"],
     experienciaMeses: 3
 };
 
-// ======================================
 // ARRAY DE VAGAS
-// ======================================
 
 const vagas = [
     {
         id:1,
         empresa:"Play Star",
         cargo:"Desenvolvedor Front-End Júnior",
-        requisitos:["JavaScript","GitHub","HTML","CSS","Kanban"],
+        requisitos:["JavaScript","GitHub","HTML","CSS","Metodologias ágeis"],
         salario:2500,
         modalidade:"Remoto"
     },
@@ -34,15 +30,13 @@ const vagas = [
         id:3,
         empresa: "Espotifai",
         cargo:"Programador JavaScript Júnior",
-        requisitos:["Lógica de Programação","JavaScript","HTML","CSS","GitHub","Kanban", "POO"],
+        requisitos:["Lógica de Programação","JavaScript","HTML","CSS","GitHub","Metodologias ágeis", "POO"],
         salario:3000,
         madalidade:"Presencial"
     }
 ];
 
-// ======================================
 // FUNÇÃO DE COMPATIBILIDADE
-// ======================================
 
 function calcularCompatibilidade(candidato, vaga) {
     let totalRequisitos = vaga.requisitos.length;
@@ -59,9 +53,7 @@ function calcularCompatibilidade(candidato, vaga) {
     return compatibilidade;
 }
 
-// ======================================
 // CLASSIFICAÇÃO DE COMPATIBILIDADE
-// ======================================
 
 function classificarCompatibilidade(compatibilidade){
     if (compatibilidade >= 80) {
@@ -75,18 +67,22 @@ function classificarCompatibilidade(compatibilidade){
     } 
 }
 
-// ======================================
 // LISTAR HABILIDADES FALTANTES
-// ======================================
 
-function habilidadesFaltantes (candidato, vaga){
+function habilidadesFaltantes(candidato, vaga) {
     let faltantes = [];
-    
+
+    console.log("Para a vaga da " + vaga.empresa + " faltam:");
+
     vaga.requisitos.forEach(requisito => {
-        if(!candidato.habilidades.includes(requisito)) {
+        if (!candidato.habilidades.includes(requisito)) {
             faltantes.push(requisito);
+            console.log(requisito);
         }
     });
 
-    return faltantes; 
+    return faltantes;
 }
+
+
+
