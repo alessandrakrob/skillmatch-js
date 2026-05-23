@@ -70,16 +70,7 @@ function classificarCompatibilidade(compatibilidade){
 // LISTAR HABILIDADES FALTANTES
 
 function habilidadesFaltantes(candidato, vaga) {
-    let faltantes = [];
-
-    console.log("Para a vaga da " + vaga.empresa + " faltam:");
-
-    vaga.requisitos.forEach(requisito => {
-        if (!candidato.habilidades.includes(requisito)) {
-            faltantes.push(requisito);
-            console.log(requisito);
-        }
-    });
+    let faltantes = vaga.requisitos.filter(requisito => !candidato.habilidades.includes(requisito));
 
     return faltantes;
 }
