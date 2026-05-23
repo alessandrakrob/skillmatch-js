@@ -105,5 +105,13 @@ function maiorCompatibilidade(candidato, vaga){
     console.log(maiorPorcentagem + "%");    
 }
 
+// GERAR UMA RECOMENDAÇÃO DE ESTUDO
+
+function recomendacao(candidato, vaga){
+    
+    let faltantes = habilidadesFaltantes(candidato, vaga);
+    console.log("Priorize estudar: " + faltantes + ", pois esses conteúdos aparecem nas vagas analisadas");
+}
+
 
 
