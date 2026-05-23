@@ -84,5 +84,26 @@ function habilidadesFaltantes(candidato, vaga) {
     return faltantes;
 }
 
+// ENCONTRAR A VAGA COM MAIOR COMPATIBILIDADE
+
+function maiorCompatibilidade(candidato, vaga){
+    
+    let melhorVaga = vagas[0];
+    let maiorPorcentagem = calcularCompatibilidade(candidato, vagas[0]);
+
+    vagas.forEach(vaga => {
+        let compatibilidade = calcularCompatibilidade(candidato,vaga);
+
+        if(compatibilidade > maiorPorcentagem){
+            maiorPorcentagem = compatibilidade;
+            melhorVaga = vaga;
+        }
+    });
+
+    console.log("Vaga mais compatível:");
+    console.log(melhorVaga.empresa);
+    console.log(maiorPorcentagem + "%");    
+}
+
 
 
