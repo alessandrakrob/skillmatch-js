@@ -166,5 +166,27 @@ class VagaFrontEnd extends Vaga {
    }
 }
 
+//CALLBACK
+
+function finalizarAnalise(nomeCandidato, callback) {
+  console.log("Análise finalizada.");
+  callback(nomeCandidato);
+}
+
+function exibirMensagemFinal(nome) {
+  console.log(nome + ", revise suas habilidades faltantes e atualize seu plano de estudos.");
+}
+
+// CLOSURE
+
+function criarContadorDeAnalises() {
+  let total = 0;
+
+  return function () {
+    total++;
+    return total;
+  };
+}
+
 
 
