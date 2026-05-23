@@ -152,5 +152,19 @@ class Vaga {
     }
 }
 
+//HERANÇA
+
+class VagaFrontEnd extends Vaga {
+  constructor(empresa, cargo, requisitos, salario, modalidade, nivel) {
+    super(empresa, cargo, requisitos, salario, modalidade);
+    this.nivel = nivel;
+  }
+
+  mostrarVagaFront(){
+     super.mostrarVaga();
+     console.log("Nível:", this.nivel);
+   }
+}
+
 
 
