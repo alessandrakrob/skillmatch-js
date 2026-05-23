@@ -98,10 +98,58 @@ function maiorCompatibilidade(candidato, vaga){
 
 // GERAR UMA RECOMENDAÇÃO DE ESTUDO
 
-function recomendacao(candidato, vaga){
-    
-    let faltantes = habilidadesFaltantes(candidato, vaga);
-    console.log("Priorize estudar: " + faltantes + ", pois esses conteúdos aparecem nas vagas analisadas");
+function recomendacao(candidato, vagas){
+
+    let faltantes = [];
+
+    vagas.forEach(vaga => {
+
+        let habilidades =
+            habilidadesFaltantes(candidato, vaga);
+
+        faltantes.push(...habilidades);
+    });
+
+    let semRepeticao = [...new Set(faltantes)];
+
+    let texto = "";
+
+    for(let i = 0; i < semRepeticao.length; i++){
+
+        texto += semRepeticao[i];
+
+        if(i < semRepeticao.length - 1){
+            texto += ", ";
+        }
+    }
+
+    console.log("Recomendação de estudo:");
+
+    console.log(
+        "Priorize estudar " +
+        texto +
+        ", pois esses conteúdos aparecem nas vagas analisadas."
+    );
+}
+
+// CLASSE VAGA
+
+class Vaga {
+  constructor(empresa, cargo, requisitos, salario, modalidade) {
+    this.empresa = empresa;
+    this.cargo = cargo;
+    this.requisitos = requisitos;
+    this.salario = salario;
+    this.modalidade = modalidade;
+    }
+
+    mostrarVaga(){
+        console.log("Empresa:", this.empresa);
+        console.log("Cargo:", this.cargo);
+        console.log("Requisitos:", this.requisitos.join(", "));
+        console.log("Salário:", this.salario);
+        console.log("Modalidade:", this.modalidade);
+    }
 }
 
 
