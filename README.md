@@ -70,11 +70,11 @@ Cada dispositivo conectado à internet possui um endereço IP, que funciona como
 
 A comunicação entre navegador e servidor pode ser protegida pelo protocolo HTTPS, que criptografa os dados transmitidos, aumentando a segurança das informações. 
 
-## Arquitetura cliente-servidor
+### Arquitetura cliente-servidor
 
 A arquitetura cliente-servidor é um modelo de rede distribuída onde tarefas e cargas de trabalho são divididas entre dois componentes principais: o cliente (que solicita recursos ou serviços) e o servidor (que processa essas solicitações e fornece os recursos solicitados). É a base fundamental da internet. 
 
-## VAR
+### VAR
 
 É uma forma de declarar variáveis no JavaScript. Ele permite criar variáveis que podem ter seus valores alterados durante a execução do programa. Diferente do let e do const, o var não respeita blocos de código como if e for, o que pode causar erros e comportamentos inesperados.
 
