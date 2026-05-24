@@ -188,5 +188,57 @@ function criarContadorDeAnalises() {
   };
 }
 
+// PROMISSE E AWAIT
+
+function buscarVagasSimuladas() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(vagas);
+    }, 1000);
+  });
+}
+
+async function iniciarSistema() {
+  const vagasCarregadas = await buscarVagasSimuladas();
+  console.log("Vagas carregadas com sucesso!");
+
+  const contarAnalise = criarContadorDeAnalises();
+
+  const resultados = vagasCarregadas.map(vaga => {
+    const compat = calcularCompatibilidade(candidato, vaga);
+    const classificacao = classificarCompatibilidade(compat);
+    const faltantes = habilidadesFaltantes(candidato, vaga);
+    const encontradas = vaga.requisitos.filter(r => candidato.habilidades.includes(r));
+
+    return { vaga, compat, classificacao, faltantes, encontradas };
+  });
+
+  for (let resultado of resultados) {
+    console.log("Empresa: " + resultado.vaga.empresa);
+    console.log("Cargo: " + resultado.vaga.cargo);
+    console.log("Compatibilidade: " + resultado.compat + "%");
+
+    console.log("Habilidades encontradas:");
+    for (let h of resultado.encontradas) {
+      console.log("- " + h);
+    }
+
+    console.log("Habilidades faltantes:");
+    for (let h of resultado.faltantes) {
+      console.log("- " + h);
+    }
+
+    console.log("Classificação: " + resultado.classificacao);
+    console.log("Análise nº " + contarAnalise());
+    console.log("---");
+  }
+
+  maiorCompatibilidade(candidato);
+  recomendacao(candidato, vagasCarregadas);
+  finalizarAnalise(candidato.nome, exibirMensagemFinal);
+}
+
+iniciarSistema();
+
 
 
